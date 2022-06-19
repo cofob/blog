@@ -1,0 +1,31 @@
+build:
+  image: node:18
+  script:
+    - |
+      apt update && apt install jq wget
+      wget https://github.com/gohugoio/hugo/releases/download/v0.101.0/hugo_0.101.0_Linux-64bit.deb
+      dpkg -i hugo_0.101.0_Linux-64bit.deb
+      hugo
+      npm install -g ipfs-car
+      ipfs-car --wrapWithDirectory false --pack public/
+      apt update && apt install jq -y
+      export CID=`curl -X 'POST' \
+        'https://api.web3.storage/car' \
+        -H 'accept: application/json' \
+        -H "Authorization: Bearer $JWT" \
+        -H 'Content-Type: application/vnd.ipld.car' \
+        --data-binary '@public.car' | jq -r .cid`
+      echo https://i.frsqr.xyz/ipfs/$CID
+  artifacts:
+    paths:
+      - out/
+    expire_in: 1 week
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules
+      - .next/cache
+  tags:
+    - docker
