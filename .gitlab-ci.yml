@@ -16,16 +16,7 @@ build:
         -H 'Content-Type: application/vnd.ipld.car' \
         --data-binary '@public.car' | jq -r .cid`
       echo https://i.frsqr.xyz/ipfs/$CID
-  artifacts:
-    paths:
-      - out/
-    expire_in: 1 week
-  cache:
-    key:
-      files:
-        - package-lock.json
-    paths:
-      - node_modules
-      - .next/cache
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
   tags:
     - docker
