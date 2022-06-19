@@ -111,13 +111,13 @@ menu:
       url: https://github.com/cofob
       params:
         icon: brand-github
-    
+
     - identifier: srht
       name: sr.ht
       url: https://sr.ht/~cofob
       params:
         icon: archives
-    
+
     - identifier: matrix
       name: Matrix
       url: https://matrix.to/#/@cofob:matrix.org
