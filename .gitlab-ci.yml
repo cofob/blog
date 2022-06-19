@@ -2,7 +2,7 @@ build:
   image: node:18
   script:
     - |
-      apt update && apt install jq wget
+      apt-get update && apt-get install jq -y
       wget https://github.com/gohugoio/hugo/releases/download/v0.101.0/hugo_0.101.0_Linux-64bit.deb
       dpkg -i hugo_0.101.0_Linux-64bit.deb
       hugo
