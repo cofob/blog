@@ -3,6 +3,7 @@ languageCode: ru-ru
 theme: hugo-theme-stack
 paginate: 5
 title: блог кофоба
+enableEmoji: true
 
 languages:
   ru:
