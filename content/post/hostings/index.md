@@ -1,7 +1,7 @@
 ---
 author: cofob
 title: Хостеры которых я попробовал
-date: 2022-06-25
+date: 2022-06-24
 slug: hostings
 categories:
   - Тех. обслуживание
